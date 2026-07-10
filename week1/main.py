@@ -56,6 +56,7 @@ def draw_fps(frame, fps):
 def combine_frames(frame,edges):
     return np.hstack((frame,cv2.cvtColor(edges, cv2.COLOR_GRAY2BGR)))
 
+
 def main ():
     cap = capture_cam()
     if not cap :
@@ -82,8 +83,8 @@ def main ():
         combined_frame = combine_frames(frame,canny)
 
         fps = fps_counter.calc_fps()
-        result = draw_fps(combined_frame,fps)
 
+        result = draw_fps(combined_frame,fps)
         cv2.imshow('Result',result)
             
         if cv2.waitKey(1) & 0xFF == ord('q'):
